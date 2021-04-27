@@ -51,6 +51,7 @@ class detailViewController: UIViewController {
     
     var dataAvailable = false
     var records: [trainRoute] = []
+    var timer = Timer()
     
     override func viewDidLoad()
     {
@@ -58,10 +59,17 @@ class detailViewController: UIViewController {
         mapNum = mapId!.mapId
         feed = "http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=e1ebd51036274ccf98a782175d2fd89e&max=2&mapid=" + mapNum + "&outputType=JSON"
         loadData()
+        scheduledTimerWithTimeInterval()
         print("from controller " + mapId!.mapId)
     }
     
-    func loadData()
+    func scheduledTimerWithTimeInterval()
+    {
+        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
+        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.loadData), userInfo: nil, repeats: true)
+    }
+    
+    @objc func loadData()
     {
         guard let feedURL = URL(string: feed) else
         {
@@ -154,28 +162,24 @@ class detailViewController: UIViewController {
                                     var index: Int = 0
                                     for r in self.records
                                     {
-                                        var substringDest = r.timeArrival.suffix(8)
-                                        var substringDest2 = substringDest.replacingOccurrences(of: ":", with: "")
-                                        let DestInt = Int(substringDest2)
-                                                                                
-                                        var substringOri = r.timeOrigin.suffix(8)
-                                        var substringOri2 = substringOri.replacingOccurrences(of: ":", with: "")
-                                        let OrgtInt = Int(substringOri2)
-                                        let eta = (DestInt! - OrgtInt!)/60
-                                        //print(String(DestInt!) + "dest")
-                                        //print(String(OrgtInt!) + "org")
                                         
+                                        let eta: Int = self.getMinutes(start: r.timeOrigin, end: r.timeArrival)
+                                        print("try: " + String(eta))
+                                        print("try wtf: " + String(index))
+                                       
                                         if index == 0
                                         {
                                             self.dest1.text = r.destination
                                             self.eta1.text = String(eta) + " min"
                                             self.stationName.text = sName as! String
+                                            print("try index: " + String(index))
                                         }
                                         
                                         else if index == 1
                                         {
                                             self.dest2.text = r.destination
                                             self.eta2.text = String(eta) + " min"
+                                            index = -1
                                         }
                                         
                                         index += 1
@@ -194,7 +198,13 @@ class detailViewController: UIViewController {
                             print(error.localizedDescription)
                         }
                     }
+                    
                     self.dataAvailable = true
+                    //DispatchQueue.main.async
+                    //{
+                        //usleep(30)
+                        //self.loadData()
+                   // }
                     
                 }
             } catch SerializationError.missing(let msg) {
@@ -206,6 +216,22 @@ class detailViewController: UIViewController {
             }
         }.resume()
     }
+    
+    // Helper function to determine arrival time in minutes between date objects from JSON
+    func getMinutes(start: String, end: String) -> Int
+       {
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            let startD = dateFormatter.date(from:start)!
+            let endD = dateFormatter.date(from:end)!
+
+            let diff = Int(endD.timeIntervalSince1970 - startD.timeIntervalSince1970)
+
+            let hours = diff / 3600
+            let minutes = (diff - hours * 3600) / 60
+            return minutes
+       }
             
             
     }

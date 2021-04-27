@@ -376,8 +376,107 @@ let red =
         stops(name: "Noyes",
               type: .purple,
               mapId: "40400"
+            ),
+        stops(name: "Foster",
+              type: .purple,
+              mapId: "40520"
+            ),
+        stops(name: "Davis",
+              type: .purple,
+              mapId: "40050"
+            ),
+        stops(name: "Dempster",
+              type: .purple,
+              mapId: "40690"
+            ),
+        stops(name: "Main",
+              type: .purple,
+              mapId: "40270"
+            ),
+        stops(name: "South Boulevard",
+              type: .purple,
+              mapId: "40840"
+            ),
+        stops(name: "Howard",
+              type: .purple,
+              mapId: "40900"
+            ),
+        stops(name: "Wilson",
+              type: .purple,
+              mapId: "40540"
+            ),
+        stops(name: "Sheridan",
+              type: .purple,
+              mapId: "40080"
+            ),
+        stops(name: "Addison",
+              type: .purple,
+              mapId: "41440"
+            ),
+        stops(name: "Belmont",
+              type: .purple,
+              mapId: "41320"
+            ),
+        stops(name: "Wellington",
+              type: .purple,
+              mapId: "41210"
+            ),
+        stops(name: "Diversey",
+              type: .purple,
+              mapId: "40530"
+            ),
+        stops(name: "Fullerton",
+              type: .purple,
+              mapId: "41220"
+            ),
+        stops(name: "Armitage",
+              type: .purple,
+              mapId: "40660"
+            ),
+        stops(name: "Sedgwick",
+              type: .purple,
+              mapId: "40800"
+            ),
+        stops(name: "Chicago",
+              type: .purple,
+              mapId: "40710"
+            ),
+        stops(name: "Merchandise Mart",
+              type: .purple,
+              mapId: "40460"
+            ),
+        stops(name: "Clark/Lake",
+              type: .purple,
+              mapId: "40380"
+            ),
+        stops(name: "State/Lake",
+              type: .purple,
+              mapId: "40260"
+            ),
+        stops(name: "Wasington/Wabash",
+              type: .purple,
+              mapId: "41700"
+            ),
+        stops(name: "Adams/Wabash",
+              type: .purple,
+              mapId: "40680"
+            ),
+        stops(name: "Harold Washinton Library",
+              type: .purple,
+              mapId: "40850"
+            ),
+        stops(name: "LaSalle/VanBuren",
+              type: .purple,
+              mapId: "40160"
+            ),
+        stops(name: "Quincy/Wells",
+              type: .purple,
+              mapId: "40040"
+            ),
+        stops(name: "Washington/Wells",
+              type: .purple,
+              mapId: "40730"
             )
-        
     ]
 
     let pink =
@@ -393,6 +492,82 @@ let red =
         stops(name: "Kostner",
               type: .pink,
               mapId: "40600"
+            ),
+        stops(name: "Pulaski-Cermak",
+              type: .pink,
+              mapId: "40150"
+            ),
+        stops(name: "Central Park",
+              type: .pink,
+              mapId: "40780"
+            ),
+        stops(name: "Kedzie-Cermak",
+              type: .pink,
+              mapId: "41040"
+            ),
+        stops(name: "California-Cermak",
+              type: .pink,
+              mapId: "40440"
+            ),
+        stops(name: "Western-Cermak",
+              type: .pink,
+              mapId: "40740"
+            ),
+        stops(name: "Damen-Cermak",
+              type: .pink,
+              mapId: "40210"
+            ),
+        stops(name: "18th",
+              type: .pink,
+              mapId: "40830"
+            ),
+        stops(name: "Polk",
+              type: .pink,
+              mapId: "41030"
+            ),
+        stops(name: "Ashland-Lake",
+              type: .pink,
+              mapId: "40170"
+            ),
+        stops(name: "Morgan-Lake",
+              type: .pink,
+              mapId: "41510"
+            ),
+        stops(name: "Clinton",
+              type: .pink,
+              mapId: "41160"
+            ),
+        stops(name: "Clark/Lake",
+              type: .pink,
+              mapId: "40380"
+            ),
+        stops(name: "State/Lake",
+              type: .pink,
+              mapId: "40260"
+            ),
+        stops(name: "Washinton/Wabash",
+              type: .pink,
+              mapId: "41700"
+            ),
+        stops(name: "Adams/Wabash",
+              type: .pink,
+              mapId: "40680"
+            ),
+        stops(name: "Harold Washington Library",
+              type: .pink,
+              mapId: "40850"
+            ),
+        stops(name: "LaSalle/VanBuren",
+              type: .pink,
+              mapId: "40160"
+            ),
+        stops(name: "Quincy/Wells",
+              type: .pink,
+              mapId: "40040"
+            ),
+        stops(name: "Washington/Wells",
+              type: .pink,
+              mapId: "40730"
             )
     ]
 
@@ -409,6 +584,102 @@ let red =
         stops(name: "Francisco",
               type: .brown,
               mapId: "40870"
+            ),
+        stops(name: "Rockwell",
+              type: .brown,
+              mapId: "41010"
+            ),
+        stops(name: "Western",
+              type: .brown,
+              mapId: "41480"
+            ),
+        stops(name: "Damen",
+              type: .brown,
+              mapId: "40090"
+            ),
+        stops(name: "Montrose",
+              type: .brown,
+              mapId: "41500"
+            ),
+        stops(name: "Irving Park",
+              type: .brown,
+              mapId: "41460"
+            ),
+        stops(name: "Addison",
+              type: .brown,
+              mapId: "41440"
+            ),
+        stops(name: "Paulina",
+              type: .brown,
+              mapId: "41340"
+            ),
+        stops(name: "Southport",
+              type: .brown,
+              mapId: "40360"
+            ),
+        stops(name: "Belmont",
+              type: .brown,
+              mapId: "41320"
+            ),
+        stops(name: "Wellington",
+              type: .brown,
+              mapId: "41210"
+            ),
+        stops(name: "Diversey",
+              type: .brown,
+              mapId: "40530"
+            ),
+        stops(name: "Fullerton",
+              type: .brown,
+              mapId: "41220"
+            ),
+        stops(name: "Armitage",
+              type: .brown,
+              mapId: "40660"
+            ),
+        stops(name: "Sedgwick",
+              type: .brown,
+              mapId: "40800"
+            ),
+        stops(name: "Chicago",
+              type: .brown,
+              mapId: "40710"
+            ),
+        stops(name: "Merchandise Mart",
+              type: .purple,
+              mapId: "40460"
+            ),
+        stops(name: "Clark/Lake",
+              type: .brown,
+              mapId: "40380"
+            ),
+        stops(name: "State/Lake",
+              type: .brown,
+              mapId: "40260"
+            ),
+        stops(name: "Wasington/Wabash",
+              type: .brown,
+              mapId: "41700"
+            ),
+        stops(name: "Adams/Wabash",
+              type: .brown,
+              mapId: "40680"
+            ),
+        stops(name: "Harold Washinton Library",
+              type: .brown,
+              mapId: "40850"
+            ),
+        stops(name: "LaSalle/VanBuren",
+              type: .brown,
+              mapId: "40160"
+            ),
+        stops(name: "Quincy/Wells",
+              type: .brown,
+              mapId: "40040"
+            ),
+        stops(name: "Washington/Wells",
+              type: .brown,
+              mapId: "40730"
             )
     ]
 
@@ -425,6 +696,118 @@ let red =
         stops(name: "Ridgeland",
               type: .green,
               mapId: "40610"
+            ),
+        stops(name: "Austin",
+              type: .green,
+              mapId: "41260"
+            ),
+        stops(name: "Central",
+              type: .green,
+              mapId: "40280"
+            ),
+        stops(name: "Laramie",
+              type: .green,
+              mapId: "40700"
+            ),
+        stops(name: "Cicero",
+              type: .green,
+              mapId: "40480"
+            ),
+        stops(name: "Pulaski",
+              type: .green,
+              mapId: "40030"
+            ),
+        stops(name: "Conservatory",
+              type: .green,
+              mapId: "41670"
+            ),
+        stops(name: "Kedzie",
+              type: .green,
+              mapId: "41070"
+            ),
+        stops(name: "California",
+              type: .green,
+              mapId: "41360"
+            ),
+        stops(name: "Ashland-Lake",
+              type: .green,
+              mapId: "40170"
+            ),
+        stops(name: "Morgan/Lake",
+              type: .green,
+              mapId: "41510"
+            ),
+        stops(name: "Clinton",
+              type: .green,
+              mapId: "41160"
+            ),
+        stops(name: "Clark/Lake",
+              type: .green,
+              mapId: "40380"
+            ),
+        stops(name: "State/Lake",
+              type: .green,
+              mapId: "40260"
+            ),
+        stops(name: "Washinton/Wabash",
+              type: .green,
+              mapId: "41700"
+            ),
+        stops(name: "Adams/Wabash",
+              type: .green,
+              mapId: "40680"
+            ),
+        stops(name: "Roosevelt",
+              type: .green,
+              mapId: "41400"
+            ),
+        stops(name: "Cermak-McCormick Place",
+              type: .green,
+              mapId: "41690"
+            ),
+        stops(name: "35-Bronzeville-IIT",
+              type: .green,
+              mapId: "41120"
+            ),
+        stops(name: "Indiana",
+              type: .green,
+              mapId: "40300"
+            ),
+        stops(name: "43rd",
+              type: .green,
+              mapId: "41270"
+            ),
+        stops(name: "47th",
+              type: .green,
+              mapId: "41080"
+            ),
+        stops(name: "51st",
+              type: .green,
+              mapId: "40130"
+            ),
+        stops(name: "Garfield",
+              type: .green,
+              mapId: "40510"
+            ),
+        stops(name: "King Drive",
+              type: .green,
+              mapId: "41140"
+            ),
+        stops(name: "East 63rd",
+              type: .green,
+              mapId: "40910"
+            ),
+        stops(name: "Halsted",
+              type: .green,
+              mapId: "40940"
+            ),
+        stops(name: "Ashland/63rd",
+              type: .green,
+              mapId: "40290"
+            ),
+        stops(name: "Fail",
+              type: .green,
+              mapId: "99999"
             )
     ]
 

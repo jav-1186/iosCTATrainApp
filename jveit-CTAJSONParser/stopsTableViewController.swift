@@ -61,56 +61,56 @@ class stopsTableViewController: UITableViewController {
             case "Blue":
                 let item = blue[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: item.type.rawValue, for: indexPath)
-                print(item.name)
+                //print(item.name)
                 cell.textLabel?.text = item.name
                 return cell
                 
             case "Red":
                 let item = red[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: item.type.rawValue, for: indexPath)
-                print(item.name)
+               // print(item.name)
                 cell.textLabel?.text = item.name
                 return cell
                 
             case "Orange":
                 let item = orange[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: item.type.rawValue, for: indexPath)
-                print(item.name)
+                //print(item.name)
                 cell.textLabel?.text = item.name
                 return cell
                 
             case "Yellow":
                 let item = yellow[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: item.type.rawValue, for: indexPath)
-                print(item.name)
+                //print(item.name)
                 cell.textLabel?.text = item.name
                 return cell
                 
             case "Purple":
                 let item = purple[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: item.type.rawValue, for: indexPath)
-                print(item.name)
+               // print(item.name)
                 cell.textLabel?.text = item.name
                 return cell
                 
             case "Pink":
                 let item = pink[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: item.type.rawValue, for: indexPath)
-                print(item.name)
+               // print(item.name)
                 cell.textLabel?.text = item.name
                 return cell
                 
             case "Brown":
                 let item = brown[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: item.type.rawValue, for: indexPath)
-                print(item.name)
+               // print(item.name)
                 cell.textLabel?.text = item.name
                 return cell
                 
             case "Green":
                 let item = green[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: item.type.rawValue, for: indexPath)
-                print(item.name)
+               // print(item.name)
                 cell.textLabel?.text = item.name
                 return cell
                 

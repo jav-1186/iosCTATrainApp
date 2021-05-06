@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Table view controller to display train lines
 class LinesTableViewController: UITableViewController {
 
     override func viewDidLoad()

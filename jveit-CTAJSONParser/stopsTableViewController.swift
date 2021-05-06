@@ -7,6 +7,7 @@
 
 import UIKit
 
+// Table view controller to display the train stops based on line selected
 class stopsTableViewController: UITableViewController {
 
     var itemLine: train?
@@ -48,7 +49,6 @@ class stopsTableViewController: UITableViewController {
                 return 1
         }
         
-        //return trainStops.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
@@ -61,56 +61,48 @@ class stopsTableViewController: UITableViewController {
             case "Blue":
                 let item = blue[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: item.type.rawValue, for: indexPath)
-                //print(item.name)
                 cell.textLabel?.text = item.name
                 return cell
                 
             case "Red":
                 let item = red[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: item.type.rawValue, for: indexPath)
-               // print(item.name)
                 cell.textLabel?.text = item.name
                 return cell
                 
             case "Orange":
                 let item = orange[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: item.type.rawValue, for: indexPath)
-                //print(item.name)
                 cell.textLabel?.text = item.name
                 return cell
                 
             case "Yellow":
                 let item = yellow[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: item.type.rawValue, for: indexPath)
-                //print(item.name)
                 cell.textLabel?.text = item.name
                 return cell
                 
             case "Purple":
                 let item = purple[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: item.type.rawValue, for: indexPath)
-               // print(item.name)
                 cell.textLabel?.text = item.name
                 return cell
                 
             case "Pink":
                 let item = pink[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: item.type.rawValue, for: indexPath)
-               // print(item.name)
                 cell.textLabel?.text = item.name
                 return cell
                 
             case "Brown":
                 let item = brown[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: item.type.rawValue, for: indexPath)
-               // print(item.name)
                 cell.textLabel?.text = item.name
                 return cell
                 
             case "Green":
                 let item = green[indexPath.row]
                 let cell = tableView.dequeueReusableCell(withIdentifier: item.type.rawValue, for: indexPath)
-               // print(item.name)
                 cell.textLabel?.text = item.name
                 return cell
                 
@@ -122,6 +114,7 @@ class stopsTableViewController: UITableViewController {
         
     }
     
+    // Method to send train stop selected to next screen
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
         let color = itemLine?.name

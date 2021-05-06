@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Train stops for the blue line
 let blue =
     [
         stops(name: "O'Hare",
@@ -143,6 +144,7 @@ let blue =
             )
     ]
 
+// Train stops for the red line
 let red =
     [
         stops(name: "Howard",
@@ -279,6 +281,7 @@ let red =
             )
     ]
 
+// Train stops for the orange line
     let orange =
     [
         stops(name: "Midway",
@@ -347,6 +350,7 @@ let red =
             )
     ]
 
+// Train stops for the yellow line
    let yellow =
     [
         stops(name: "Howard",
@@ -479,6 +483,7 @@ let red =
             )
     ]
 
+    // Train stops for the pink line
     let pink =
     [
         stops(name: "54th/Cermak",
@@ -571,6 +576,7 @@ let red =
             )
     ]
 
+    // Train stops for the brown line
     let brown =
     [
         stops(name: "Kimball",
@@ -683,6 +689,7 @@ let red =
             )
     ]
 
+    // Train stops for the green line
     let green =
     [
         stops(name: "Harlem",
@@ -811,6 +818,7 @@ let red =
             )
     ]
 
+// Class for the train stops
 class stops
 {
     

@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Array of the train lines
 let trainLines =
     [
         train(name: "Blue",
@@ -35,7 +36,7 @@ let trainLines =
             )
     ]
 
-
+// Train class
 class train
 {
     

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E186B50263E515000C77930 /* menuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E186B4F263E515000C77930 /* menuTableViewController.swift */; };
+		8E186B53263E53BB00C77930 /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E186B52263E53BB00C77930 /* mapViewController.swift */; };
+		8E186B9026424B0E00C77930 /* findTrains.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E186B8F26424B0E00C77930 /* findTrains.swift */; };
 		8E459B9F262C76F7001C73EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E459B9E262C76F7001C73EB /* AppDelegate.swift */; };
 		8E459BA1262C76F7001C73EB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E459BA0262C76F7001C73EB /* SceneDelegate.swift */; };
 		8E459BA6262C76F7001C73EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E459BA4262C76F7001C73EB /* Main.storyboard */; };
@@ -20,6 +23,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8E186B4F263E515000C77930 /* menuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = menuTableViewController.swift; sourceTree = "<group>"; };
+		8E186B52263E53BB00C77930 /* mapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
+		8E186B7D263E5EC900C77930 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		8E186B89263FA81A00C77930 /* trainStations.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = trainStations.gpx; sourceTree = "<group>"; };
+		8E186B8A263FAA2500C77930 /* trainStations.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = trainStations.gpx; path = "jveit-CTAJSONParser/trainStations.gpx"; sourceTree = "<group>"; };
+		8E186B8F26424B0E00C77930 /* findTrains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = findTrains.swift; sourceTree = "<group>"; };
 		8E459B9B262C76F7001C73EB /* jveit-CTAJSONParser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "jveit-CTAJSONParser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E459B9E262C76F7001C73EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E459BA0262C76F7001C73EB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,11 +54,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8E186B7C263E5EC900C77930 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8E186B7D263E5EC900C77930 /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8E459B92262C76F7001C73EB = {
 			isa = PBXGroup;
 			children = (
+				8E186B8A263FAA2500C77930 /* trainStations.gpx */,
 				8E459B9D262C76F7001C73EB /* jveit-CTAJSONParser */,
 				8E459B9C262C76F7001C73EB /* Products */,
+				8E186B7C263E5EC900C77930 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,10 +83,14 @@
 		8E459B9D262C76F7001C73EB /* jveit-CTAJSONParser */ = {
 			isa = PBXGroup;
 			children = (
+				8E186B89263FA81A00C77930 /* trainStations.gpx */,
 				8E459B9E262C76F7001C73EB /* AppDelegate.swift */,
 				8E459BA0262C76F7001C73EB /* SceneDelegate.swift */,
 				8E459BA4262C76F7001C73EB /* Main.storyboard */,
+				8E186B52263E53BB00C77930 /* mapViewController.swift */,
+				8E186B4F263E515000C77930 /* menuTableViewController.swift */,
 				8E459BBF262E2064001C73EB /* detailViewController.swift */,
+				8E186B8F26424B0E00C77930 /* findTrains.swift */,
 				8E459BB9262C9210001C73EB /* stopsTableViewController.swift */,
 				8E459BB3262C78D3001C73EB /* LinesTableViewController.swift */,
 				8E459BBC262C941A001C73EB /* trainStops.swift */,
@@ -153,9 +176,12 @@
 				8E459B9F262C76F7001C73EB /* AppDelegate.swift in Sources */,
 				8E459BBD262C941A001C73EB /* trainStops.swift in Sources */,
 				8E459BA1262C76F7001C73EB /* SceneDelegate.swift in Sources */,
+				8E186B50263E515000C77930 /* menuTableViewController.swift in Sources */,
 				8E459BB4262C78D3001C73EB /* LinesTableViewController.swift in Sources */,
+				8E186B53263E53BB00C77930 /* mapViewController.swift in Sources */,
 				8E459BBA262C9210001C73EB /* stopsTableViewController.swift in Sources */,
 				8E459BC0262E2065001C73EB /* detailViewController.swift in Sources */,
+				8E186B9026424B0E00C77930 /* findTrains.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

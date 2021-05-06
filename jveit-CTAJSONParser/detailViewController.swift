@@ -7,9 +7,9 @@
 
 import UIKit
 
+// Class that displays arrival information and makes API call
 class detailViewController: UIViewController {
 
-    
     @IBOutlet weak var dest1: UILabel!
     @IBOutlet weak var eta1: UILabel!
     @IBOutlet weak var dest2: UILabel!
@@ -21,10 +21,9 @@ class detailViewController: UIViewController {
     
     let baseURL = "http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=e1ebd51036274ccf98a782175d2fd89e&max=2&"
     
-    //let feed = "http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx?key=e1ebd51036274ccf98a782175d2fd89e&max=2&mapid=40820&outputType=JSON"
-    
     var feed = ""
     
+    // Class to hold JSON data for trains
     class trainRoute
     {
         var station: String = ""
@@ -33,16 +32,7 @@ class detailViewController: UIViewController {
         var timeArrival: String = ""
     }
     
-    struct route: Decodable {
-        enum Category: String, Decodable
-        {
-            case swift, combine, debugging, xcode
-        }
-
-        let staNm: String
-        
-    }
-    
+    // Error catching
     enum SerializationError: Error
     {
         case missing(String)
@@ -53,6 +43,7 @@ class detailViewController: UIViewController {
     var records: [trainRoute] = []
     var timer = Timer()
     
+    // Dynamically sets URL from segue and starts timer so data is refreshed in background
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -63,19 +54,19 @@ class detailViewController: UIViewController {
         print("from controller " + mapId!.mapId)
     }
     
+    // Scheduling timer to Call the function "loadData with the interval of 30 seconds
     func scheduledTimerWithTimeInterval()
     {
-        // Scheduling timer to Call the function "updateCounting" with the interval of 1 seconds
-        timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.loadData), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(self.loadData), userInfo: nil, repeats: true)
     }
     
+    // Function that starts URL session and makes API call. Parses JSON
     @objc func loadData()
     {
         guard let feedURL = URL(string: feed) else
         {
             return
         }
-        
         
         let request = URLRequest(url: feedURL)
         let session = URLSession.shared
@@ -90,17 +81,12 @@ class detailViewController: UIViewController {
             
             guard let data = data else { return }
             
-           
-            print(data)
-         
-            
             do {
                 if let json =
                     try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
-                   // print(json)
-                    
+                   
                     print(json)
-                    
+                    print("Refreshing Data")
                     
                     guard let feed = json["ctatt"] as? [String:Any] else
                     {
@@ -112,27 +98,14 @@ class detailViewController: UIViewController {
                         throw SerializationError.missing("tmst")
                     }
                     
-                    
-                    
                     guard let entries = feed["eta"] as? [Any] else
                     {
                         throw SerializationError.missing("eta")
                     }
                     
-                   
-                    
-                    
-                    //print(entries)
                     for e in entries {
                         do {
                             if let entry = e as? [String:Any] {
-                                
-                                //print(entry)
-                                //print(entry["heading"]!)
-                                //print(entry["staNm"]!)
-                                //let name = entry["staNm"]!
-                               // print(name)
-                                
                                 
                                 guard let sName = entry["staNm"]  else
                                 {
@@ -149,14 +122,13 @@ class detailViewController: UIViewController {
                                     throw SerializationError.missing("stpDe")
                                 }
                                 
-                                
-                                
                                 let train = trainRoute()
                                 train.destination = destName as! String
                                 train.timeArrival = arrT as! String
                                 train.timeOrigin = originTime as! String
                                 self.records.append(train)
                                 
+                                // Main thread
                                 DispatchQueue.main.async
                                 {
                                     var index: Int = 0
@@ -164,15 +136,13 @@ class detailViewController: UIViewController {
                                     {
                                         
                                         let eta: Int = self.getMinutes(start: r.timeOrigin, end: r.timeArrival)
-                                        print("try: " + String(eta))
-                                        print("try wtf: " + String(index))
+                                        
                                        
                                         if index == 0
                                         {
                                             self.dest1.text = r.destination
                                             self.eta1.text = String(eta) + " min"
                                             self.stationName.text = sName as! String
-                                            print("try index: " + String(index))
                                         }
                                         
                                         else if index == 1
@@ -198,13 +168,6 @@ class detailViewController: UIViewController {
                             print(error.localizedDescription)
                         }
                     }
-                    
-                    self.dataAvailable = true
-                    //DispatchQueue.main.async
-                    //{
-                        //usleep(30)
-                        //self.loadData()
-                   // }
                     
                 }
             } catch SerializationError.missing(let msg) {

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<gpx version="1.1" creator="Xcode">
+    
+    <wpt lat="41.984662" lon="-87.861304">
+        <time>2020-12-31T23:59:55Z</time>
+    </wpt>
+    
+    <wpt lat="41.984266" lon="-87.860504">
+        <name>Blue Line Rosemont</name>
+        <time>2021-01-01T00:00:00Z</time>
+    </wpt>
+    
+    <wpt lat="41.983563" lon="-87.857178">
+        <time>2021-01-01T00:00:05Z</time>
+    </wpt>
+    
+    <wpt lat="41.983571" lon="-87.853884">
+        <time>2021-01-01T00:00:10Z</time>
+    </wpt>
+    
+    <wpt lat="41.983607" lon="-87.850156">
+        <time>2021-01-01T00:00:15Z</time>
+    </wpt>
+    
+    <wpt lat="41.983651" lon="-87.846261">
+        <time>2021-01-01T00:00:20Z</time>
+    </wpt>
+    
+    <wpt lat="41.983982" lon="-87.840494">
+        <time>2021-01-01T00:00:25Z</time>
+    </wpt>
+    
+    <wpt lat="41.984402" lon="-87.837977">
+        <name>Blue Line Cumberland</name>
+        <time>2021-01-01T00:00:30Z</time>
+    </wpt>
+    
+    <wpt lat="41.984301" lon="-87.833034">
+        <time>2021-01-01T00:00:35Z</time>
+    </wpt>
+    
+    <wpt lat="41.984222" lon="-87.826202">
+        <time>2021-01-01T00:00:40Z</time>
+    </wpt>
+    
+    <wpt lat="41.984222" lon="-87.826202">
+        <time>2021-01-01T00:00:45Z</time>
+    </wpt>
+    
+    <wpt lat="41.983030" lon="-87.818021">
+        <time>2021-01-01T00:00:50Z</time>
+    </wpt>
+    
+    <wpt lat="41.982127" lon="-87.810383">
+        <time>2021-01-01T00:00:55Z</time>
+    </wpt>
+    
+    <wpt lat="41.982268" lon="-87.807511">
+        <name>Blue Line Harlem</name>
+        <time>2021-01-01T00:01:00Z</time>
+    </wpt>
+    
+    
+</gpx>

@@ -15,8 +15,8 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var locationL: UILabel!
     @IBOutlet weak var enterR: UILabel!
     @IBOutlet weak var roseT: UILabel!
-    @IBOutlet weak var cumbT: UILabel!
-    @IBOutlet weak var harT: UILabel!
+    @IBOutlet weak var timeAr: UILabel!
+    @IBOutlet weak var stationN: UILabel!
     
     let locationManager = CLLocationManager()
     var RosemontTrain = ("","")
@@ -43,13 +43,19 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
     var records: [trainLocation] = []
     var lat: String = ""
     var long: String = ""
+    var timeArrival: String = ""
+    var timeOrigin: String = ""
+    
+    var roseTime: String = ""
+    var cumbTime: String = ""
+    var harTime: String = ""
 
     
     let points =
     [
         (lat: 41.983455, lon: -87.859888, name: "Rosemont Blue Line Station"),
         (lat: 41.984383, lon: -87.837722, name: "Cumberland Blue Line Station"),
-        (lat: 41.982322, lon: -87.807626, name: "Harlem Blue Line Staton")
+        (lat: 41.982322, lon: -87.807626, name: "Harlem Blue Line Station")
     ]
     
     var regions = [CLCircularRegion]()
@@ -155,10 +161,9 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
         
         locationL.text =
             "Latitude: " + String(format: "%.4f", location.coordinate.latitude) +
-            "\nLongitude: " +  String(format: "%.4f", location.coordinate.longitude) +
-            "\nHorizontal Accuracy: " + String(format: "%.4f", location.horizontalAccuracy) + " M"
+            "\nLongitude: " +  String(format: "%.4f", location.coordinate.longitude) 
         
-        mapView.setRegion(MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
+        mapView.setRegion(MKCoordinateRegion(center: location.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)), animated: true)
         
         
         if mapView.isPitchEnabled
@@ -183,7 +188,7 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
         harlem.coordinate = CLLocationCoordinate2D(latitude: Double(HarlemTrain.0) ?? 47.1, longitude: Double(HarlemTrain.1) ?? 87.1)
         let placeH = Place(harlem.coordinate, "Harlem Train")
         
-        let place = Place(location.coordinate, "Hey")
+        let place = Place(location.coordinate, "Me")
         mapView.addAnnotation(place)
         mapView.addAnnotation(placeR)
         mapView.addAnnotation(placeC)
@@ -196,6 +201,27 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
     {
         NSLog("Enter region \(region)")
         enterR.text = "Enter \(region.identifier)"
+        print(region.identifier + "hereeee")
+        if region.identifier == "Rosemont Blue Line Station"
+        {
+            timeAr.text = roseTime + " min"
+            stationN.text = "Rosemont Train Arrival Time"
+            roseT.text = "Rosemont Train: " + RosemontTrain.0 + " " + RosemontTrain.1
+        }
+        
+        else if region.identifier == "Cumberland Blue Line Station"
+        {
+            timeAr.text = cumbTime + " min"
+            stationN.text = "Cumberland Train Arrival Time"
+            roseT.text = "Cumberland Train: " + CumberlandTrain.0 + " " + CumberlandTrain.1
+        }
+        
+        else if region.identifier == "Harlem Blue Line Station"
+        {
+            timeAr.text = harTime + " min"
+            stationN.text = "Harlem Train Arrival Time"
+            roseT.text = "HarlemTrain: " + HarlemTrain.0 + " " + HarlemTrain.1
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion)
@@ -282,29 +308,42 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
                                     throw SerializationError.missing("long")
                                 }
                                 
-                                lat = latT as? String ?? "None"
-                                long = longT as? String ?? "None"
-                                print("long1: " + long)
-                                print("lat1: " + lat)
+                                guard let arrT = entry["arrT"]  else
+                                {
+                                    throw SerializationError.missing("arrT")
+                                }
+                                
+                                guard let destName = entry["stpDe"] else
+                                {
+                                    throw SerializationError.missing("stpDe")
+                                }
+                                
+                                lat = latT as? String ?? "At"
+                                long = longT as? String ?? "Station"
+                                
+                                timeArrival = arrT as! String
+                                timeOrigin = originTime as! String
                                 
                                 DispatchQueue.main.async
                                 {
+                                    let eta: Int = self.getMinutes(start: timeOrigin, end: timeArrival)
+                                    
                                     if name == "Rosemont"
                                     {
                                         RosemontTrain = (lat, long)
-                                        roseT.text = "Rosemont Train: " + String(lat) + " " + String(long)
+                                        roseTime = String(eta)
                                     }
                                     
                                     else if name == "Cumberland"
                                     {
                                         CumberlandTrain = (lat, long)
-                                        cumbT.text = "Cumberland Train: " + String(lat) + " " + String(long)
+                                        cumbTime = String(eta)
                                     }
                                     
                                     else if name == "Harlem"
                                     {
                                         HarlemTrain = (lat, long)
-                                        harT.text = "Harlem Train: " + String(lat) + " " + String(long)
+                                        harTime = String(eta)
                                     }
                                 }
                                 
@@ -336,6 +375,28 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
         print("lat: " + lat)
         
     }
+    
+    func getMinutes(start: String, end: String) -> Int
+       {
+            let dateFormatter = DateFormatter()
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX") // set locale to reliable US_POSIX
+            dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+            let startD = dateFormatter.date(from:start)!
+            let endD = dateFormatter.date(from:end)!
+
+            let diff = Int(endD.timeIntervalSince1970 - startD.timeIntervalSince1970)
+
+            let hours = diff / 3600
+            let minutes = (diff - hours * 3600) / 60
+            return minutes
+       }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+            let circleRenderer = MKCircleRenderer(overlay: overlay)
+            circleRenderer.strokeColor = UIColor.red
+            circleRenderer.lineWidth = 1.0
+            return circleRenderer
+        }
     
 }
 
